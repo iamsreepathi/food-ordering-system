@@ -1,0 +1,98 @@
+version: "3.8"
+
+x-app-environment: &appEnvironment
+  APP_NAME: ${APP_NAME}
+  APP_URL: ${APP_URL}
+  APP_KEY: ${APP_KEY}
+  APP_DEBUG: ${APP_DEBUG}
+  APP_ENV: ${APP_ENV}
+  DB_CONNECTION: ${DB_CONNECTION}
+  DB_HOST: ${DB_HOST}
+  DB_PORT: ${DB_PORT}
+  DB_DATABASE: ${DB_DATABASE}
+  DB_USERNAME: ${DB_USER}
+  DB_PASSWORD: ${DB_PASS}
+  MAIL_MAILER: ${MAIL_MAILER}
+  MAIL_HOST: ${MAIL_HOST}
+  MAIL_PORT: ${MAIL_PORT}
+  MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
+  MAIL_FROM_NAME: ${MAIL_FROM_NAME}
+  VITE_APP_NAME: ${VITE_APP_NAME}
+
+x-database-environment: &databaseEnvironment
+  MYSQL_DATABASE: ${DB_DATABASE}
+  MYSQL_USER: ${DB_USER}
+  MYSQL_PASSWORD: ${DB_PASS}
+  MYSQL_ROOT_PASSWORD: ${DB_PASS}
+  SERVICE_TAGS: dev
+  SERVICE_NAME: mysql
+
+networks:
+  laravel:
+
+services:
+  # mysql:
+  #   image: mariadb:10.6
+  #   restart: unless-stopped
+  #   tty: true
+  #   ports:
+  #     - "3307:3306"
+  #   healthcheck:
+  #     test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+  #     interval: 10s
+  #     timeout: 10s
+  #     retries: 3
+  #   environment:
+  #     <<: [*databaseEnvironment]
+  #   networks:
+  #     - laravel
+
+  # app:
+  #   build:
+  #     context: .
+  #     dockerfile: php.dockerfile
+  #   ports:
+  #     - "80:80"
+  #   volumes:
+  #     - ./src:/var/www/html:delegated
+  #   networks:
+  #     - laravel
+  #   depends_on:
+  #     mysql:
+  #       condition: service_healthy
+  #   environment:
+  #     <<: [*appEnvironment]
+
+  # composer:
+  #   build:
+  #     context: .
+  #     dockerfile: php.dockerfile
+  #   volumes:
+  #     - ./src:/var/www/html
+  #   depends_on:
+  #     - app
+  #   entrypoint: ["composer", "--ignore-platform-reqs"]
+  #   networks:
+  #     - laravel
+
+  # artisan:
+  #   build:
+  #     context: .
+  #     dockerfile: php.dockerfile
+  #   volumes:
+  #     - ./src:/var/www/html:delegated
+  #   depends_on:
+  #     - mysql
+  #   entrypoint: ["php", "/var/www/html/artisan"]
+  #   environment:
+  #     <<: [*appEnvironment]
+  #   networks:
+  #     - laravel
+
+  mailhog:
+    image: mailhog/mailhog:latest
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+    networks:
+      - laravel
