@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>Menu Item {{ item.name }} | Food Mania</title>
+    </Head>
     <AppLayout>
         <ItemDetail :item="item" />
         <hr />
@@ -21,6 +24,7 @@
 </template>
 
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import SectionTitle from "@/Components/SectionTitle.vue";
 import ItemDetail from "@/Components/ItemDetail.vue";

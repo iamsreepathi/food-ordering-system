@@ -1,4 +1,5 @@
 <template>
+    <Head title="Checkout Your Order | Food Mania" />
     <ToastList />
     <nav class="p-4 lg:container lg:mx-auto">
         <div class="flex flex-wrap items-center justify-between">
@@ -28,6 +29,7 @@
 </template>
 
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import ToastList from "@/Components/ToastList.vue";
 import TheCart from "@/Components/icons/TheCart.vue";
 import { Link } from "@inertiajs/inertia-vue3";

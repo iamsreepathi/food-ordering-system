@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>Shopping Cart | Food Mania</title>
+    </Head>
     <AppLayout :header="false">
         <section class="space-y-4">
             <SectionTitle>Your Shopping Cart</SectionTitle>
@@ -9,6 +12,7 @@
 </template>
 
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import SectionTitle from "@/Components/SectionTitle.vue";
 import EmptyCart from "@/Components/EmptyCart.vue";

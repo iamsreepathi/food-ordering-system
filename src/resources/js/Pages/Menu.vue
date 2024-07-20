@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>Our Food Menu | Food Mania</title>
+    </Head>
     <AppLayout>
         <section class="space-y-6">
             <SectionTitle>Our Food Menu</SectionTitle>
@@ -22,6 +25,7 @@
 </template>
 
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import { ref } from "vue";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import SectionTitle from "@/Components/SectionTitle.vue";

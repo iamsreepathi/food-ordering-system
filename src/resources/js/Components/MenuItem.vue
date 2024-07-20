@@ -13,7 +13,9 @@
             <p class="text-gray-500 text-sm">
                 {{ item.short_description }}
             </p>
-            <button-link href="#" class="text-sm block text-center rounded-full"
+            <button-link
+                :link="`menu-item/${item.id}`"
+                class="text-sm block text-center rounded-full"
                 >Order</button-link
             >
         </div>

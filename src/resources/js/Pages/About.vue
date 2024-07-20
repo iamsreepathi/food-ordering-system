@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>About Us | Food Mania</title>
+    </Head>
     <AppLayout :header="false">
         <section class="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-4">
             <div class="space-y-2">
@@ -46,6 +49,7 @@
 </template>
 
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import SectionTitle from "@/Components/SectionTitle.vue";
 import LocationMarker from "@/Components/LocationMarker.vue";

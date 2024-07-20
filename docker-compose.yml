@@ -18,6 +18,9 @@ x-app-environment: &appEnvironment
   MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
   MAIL_FROM_NAME: ${MAIL_FROM_NAME}
   VITE_APP_NAME: ${VITE_APP_NAME}
+  VITE_GOOGLE_MAPS_API_KEY: ${VITE_GOOGLE_MAPS_API_KEY}
+  STRIPE_KEY: ${STRIPE_KEY}
+  STRIPE_SECRET: ${STRIPE_SECRET}
 
 x-database-environment: &databaseEnvironment
   MYSQL_DATABASE: ${DB_DATABASE}
@@ -31,63 +34,63 @@ networks:
   laravel:
 
 services:
-  # mysql:
-  #   image: mariadb:10.6
-  #   restart: unless-stopped
-  #   tty: true
-  #   ports:
-  #     - "3307:3306"
-  #   healthcheck:
-  #     test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-  #     interval: 10s
-  #     timeout: 10s
-  #     retries: 3
-  #   environment:
-  #     <<: [*databaseEnvironment]
-  #   networks:
-  #     - laravel
+  mysql:
+    image: mariadb:10.6
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3307:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    environment:
+      <<: [*databaseEnvironment]
+    networks:
+      - laravel
 
-  # app:
-  #   build:
-  #     context: .
-  #     dockerfile: php.dockerfile
-  #   ports:
-  #     - "80:80"
-  #   volumes:
-  #     - ./src:/var/www/html:delegated
-  #   networks:
-  #     - laravel
-  #   depends_on:
-  #     mysql:
-  #       condition: service_healthy
-  #   environment:
-  #     <<: [*appEnvironment]
+  app:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./src:/var/www/html:delegated
+    networks:
+      - laravel
+    depends_on:
+      mysql:
+        condition: service_healthy
+    environment:
+      <<: [*appEnvironment]
 
-  # composer:
-  #   build:
-  #     context: .
-  #     dockerfile: php.dockerfile
-  #   volumes:
-  #     - ./src:/var/www/html
-  #   depends_on:
-  #     - app
-  #   entrypoint: ["composer", "--ignore-platform-reqs"]
-  #   networks:
-  #     - laravel
+  composer:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - app
+    entrypoint: ["composer", "--ignore-platform-reqs"]
+    networks:
+      - laravel
 
-  # artisan:
-  #   build:
-  #     context: .
-  #     dockerfile: php.dockerfile
-  #   volumes:
-  #     - ./src:/var/www/html:delegated
-  #   depends_on:
-  #     - mysql
-  #   entrypoint: ["php", "/var/www/html/artisan"]
-  #   environment:
-  #     <<: [*appEnvironment]
-  #   networks:
-  #     - laravel
+  artisan:
+    build:
+      context: .
+      dockerfile: php.dockerfile
+    volumes:
+      - ./src:/var/www/html:delegated
+    depends_on:
+      - mysql
+    entrypoint: ["php", "/var/www/html/artisan"]
+    environment:
+      <<: [*appEnvironment]
+    networks:
+      - laravel
 
   mailhog:
     image: mailhog/mailhog:latest

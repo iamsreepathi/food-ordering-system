@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>Sign In | Food Mania</title>
+    </Head>
     <AppLayout :header="false">
         <section class="flex justify-center items-center h-screen -mt-20">
             <div class="w-full md:w-1/2 border p-4 rounded space-y-2 shadow-sm">
@@ -65,7 +68,7 @@
 </template>
 
 <script setup>
-import { useForm } from "@inertiajs/vue3";
+import { useForm, Head } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import ButtonSubmit from "@/Components/ButtonSubmit.vue";
 import ButtonLink from "@/Components/ButtonLink.vue";

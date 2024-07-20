@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>Order Summary | Food Mania</title>
+    </Head>
     <AppLayout>
         <section class="space-y-4">
             <SectionTitle>Items Purchased</SectionTitle>
@@ -45,6 +48,7 @@
 </template>
 
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
 import SectionTitle from "@/Components/SectionTitle.vue";
 import OrderItem from "@/Components/OrderItem.vue";

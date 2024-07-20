@@ -1,4 +1,7 @@
 <template>
+    <Head>
+        <title>South Indian Cuisine | Food Mania</title>
+    </Head>
     <AppLayout>
         <section class="space-y-4 text-center">
             <SectionTitle>Testimonials</SectionTitle>
@@ -80,6 +83,7 @@
     </AppLayout>
 </template>
 <script setup>
+import { Head } from "@inertiajs/vue3";
 import { SwiperSlide } from "swiper/vue";
 import { useForm } from "@inertiajs/vue3";
 import AppLayout from "@/Layouts/AppLayout.vue";
