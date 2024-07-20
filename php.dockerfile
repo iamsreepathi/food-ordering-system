@@ -3,7 +3,7 @@ FROM php:8-apache
 
 # Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
-    git \
+    # git \
     curl \
     libpng-dev \
     libjpeg-dev \
@@ -11,9 +11,9 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
     unzip \
-    vim \
-    nodejs \
-    npm \
+    # vim \
+    # nodejs \
+    # npm \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd \
     && docker-php-ext-install pdo pdo_mysql zip

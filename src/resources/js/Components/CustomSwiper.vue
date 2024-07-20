@@ -45,6 +45,9 @@ const modules = [Pagination, Autoplay];
 .swiper-pagination-bullet {
     background-color: gray;
 }
+.swiper-pagination-bullet-active {
+    color: green;
+}
 .swiper {
     padding-bottom: 40px;
 }

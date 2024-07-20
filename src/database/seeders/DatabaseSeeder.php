@@ -27,11 +27,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        // $categories = MenuCategory::factory(10)->create();
+        $categories = MenuCategory::factory(10)->create();
 
-        // $items = MenuItem::factory(50)->recycle($categories)->create();
+        $items = MenuItem::factory(50)->recycle($categories)->create();
 
-        // MenuRating::factory(20)->recycle($users)->recycle($items)->create();
+        MenuRating::factory(20)->recycle($users)->recycle($items)->create();
 
         Location::factory(1)->create();
     }
