@@ -1,7 +1,7 @@
 <template>
     <div class="border shadow-md rounded">
         <div>
-            <img src="/images/item.jpeg" :alt="item.name" />
+            <img src="/images/item.jpg" :alt="item.name" />
         </div>
         <div class="p-2 space-y-2">
             <p class="font-semibold text-sm">

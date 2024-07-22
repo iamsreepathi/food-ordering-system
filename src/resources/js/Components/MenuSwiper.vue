@@ -5,6 +5,9 @@
         :navigation="true"
         :breakpoints="{
             '375': {
+                slidesPerView: 2,
+            },
+            '425': {
                 slidesPerView: 3,
             },
             '640': {
@@ -23,7 +26,7 @@
     >
         <SwiperSlide v-for="item in items" :key="item.id"
             ><p
-                class="font-semibold hover:bg-green-50 hover:cursor-pointer rounded-md"
+                class="font-semibold hover:bg-green-50 hover:cursor-pointer rounded-md mx-4"
                 :class="{ activeCat: item.id === categoryId }"
                 @click="() => onButtonClick(item)"
             >
@@ -61,7 +64,7 @@ const onButtonClick = (cat) => {
 }
 .swiper-button-next,
 .swiper-button-prev {
-    color: green;
+    color: rgb(1, 83, 1);
     top: 12px;
 }
 .swiper-slide {
@@ -69,7 +72,7 @@ const onButtonClick = (cat) => {
 }
 .swiper-button-next:after,
 .swiper-button-prev:after {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: bolder;
 }
 .swiper-button-prev {

@@ -33,7 +33,7 @@
                                 defaultClass="rounded-md w-full p-1 text-gray-700 hover:border-green-900"
                                 type="submit"
                             >
-                                <TrashCan />
+                                <TrashCan class="text-green-900" />
                             </ButtonSubmit>
                         </form>
                     </div>

@@ -35,8 +35,8 @@
             </div>
             <div class="flex items-center justify-center">
                 <img
-                    class="rounded-full h-60 w-60"
-                    src="/images/pizza.jpg"
+                    class="rounded-full w-60 h-60 object-cover"
+                    src="/images/vada.jpg"
                     alt=""
                 />
             </div>
@@ -45,6 +45,8 @@
     <main class="container mx-auto p-4 space-y-4">
         <slot></slot>
     </main>
+    <DealSubscription v-show="subscription" />
+    <StoreHours v-show="subscription" />
     <TheFooter />
 </template>
 
@@ -52,11 +54,14 @@
 import NavBar from "@/Components/NavBar.vue";
 import TheFooter from "@/Components/TheFooter.vue";
 import ToastList from "@/Components/ToastList.vue";
+import DealSubscription from "@/Components/DealSubscription.vue";
+import StoreHours from "@/Components/StoreHours.vue";
 
 defineProps({
     header: {
         type: Boolean,
         default: true,
     },
+    subscription: false,
 });
 </script>

@@ -17,10 +17,12 @@ x-app-environment: &appEnvironment
   MAIL_PORT: ${MAIL_PORT}
   MAIL_FROM_ADDRESS: ${MAIL_FROM_ADDRESS}
   MAIL_FROM_NAME: ${MAIL_FROM_NAME}
-  VITE_APP_NAME: ${VITE_APP_NAME}
-  VITE_GOOGLE_MAPS_API_KEY: ${VITE_GOOGLE_MAPS_API_KEY}
   STRIPE_KEY: ${STRIPE_KEY}
   STRIPE_SECRET: ${STRIPE_SECRET}
+
+x-vite-environment: &viteEnvironment
+  VITE_APP_NAME: ${VITE_APP_NAME}
+  VITE_GOOGLE_MAPS_API_KEY: ${VITE_GOOGLE_MAPS_API_KEY}
 
 x-database-environment: &databaseEnvironment
   MYSQL_DATABASE: ${DB_DATABASE}
@@ -89,6 +91,8 @@ services:
       context: .
       dockerfile: vite.dockerfile
     working_dir: /var/www/html
+    environment:
+      <<: [*viteEnvironment]
     volumes:
       - ./src:/var/www/html
     ports:

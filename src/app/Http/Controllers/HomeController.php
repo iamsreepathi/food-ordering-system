@@ -14,8 +14,10 @@ class HomeController extends Controller
     public function home()
     {
         $items = MenuItem::featured()->get();
+        $locations = Location::all();
         return Inertia::render('Welcome', [
-            'items' => $items
+            'items' => $items,
+            'locations' => $locations
         ]);
     }
 
