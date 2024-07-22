@@ -18,7 +18,14 @@
                     :class="{ active: $page.url === '/cart' }"
                     href="/cart"
                 >
-                    <TheCart :fill="true" />
+                    <div class="flex items-center">
+                        <TheCart :fill="true" />
+                        <span
+                            v-show="props.cart.count"
+                            class="rounded-full bg-green-900 text-white px-1 text-xs"
+                            >{{ props.cart.count }}</span
+                        >
+                    </div>
                 </Link>
                 <button-link
                     class="rounded-full"
