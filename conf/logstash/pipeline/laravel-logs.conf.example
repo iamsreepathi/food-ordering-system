@@ -1,0 +1,37 @@
+input {
+  file {
+    path => "/usr/share/logstash/pipeline/laravel.log"
+    start_position => "beginning"
+    sincedb_path => "/dev/null"
+    codec => multiline {
+        pattern => "^\["
+        what => "previous"
+        negate => true
+    }
+  }
+}
+
+filter {
+  grok {
+    match => { "message" => "\[%{TIMESTAMP_ISO8601:timestamp}\] %{DATA:env}\.%{DATA:severity}: %{DATA:message}" }
+  }
+
+  date {
+    match => [ "timestamp", "yyyy-MM-dd HH:mm:ss" ]
+    timezone => "UTC"
+  }
+
+  mutate {
+    remove_field => ["host", "path", "@version"]
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["ELASTIC_DOMAIN"]
+    index => "INDEX_NAME"
+    api_key => "API_KEY"
+    ssl => true
+  }
+  stdout { codec => rubydebug }
+}

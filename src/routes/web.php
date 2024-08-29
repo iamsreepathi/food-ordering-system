@@ -18,6 +18,7 @@ Route::middleware(['guest'])->group(function () {
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/', [HomeController::class, 'home'])->name('app.home');
 Route::get('/about', [HomeController::class, 'about'])->name('app.about');
+Route::get('/logs', [HomeController::class, 'log'])->name('app.logs');
 Route::post('/newsletter/subscription', [HomeController::class, 'newsletter'])->name('app.newsletter');
 Route::get('/menu', [MenuCategoryController::class, 'index'])->name('menu.categories');
 

@@ -26,7 +26,7 @@
     >
         <SwiperSlide v-for="item in items" :key="item.id"
             ><p
-                class="font-semibold hover:bg-green-50 hover:cursor-pointer rounded-md mx-4"
+                class="font-semibold hover:bg-green-50 hover:cursor-pointer rounded-md mx-4 xl:mr-4 xl:ml-0"
                 :class="{ activeCat: item.id === categoryId }"
                 @click="() => onButtonClick(item)"
             >

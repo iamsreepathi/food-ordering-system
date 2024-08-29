@@ -1,0 +1,2 @@
+node.name: logstash_laravel
+api.environment: dev

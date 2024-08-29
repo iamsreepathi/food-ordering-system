@@ -11,16 +11,9 @@ RUN apt-get update && apt-get install -y \
     libzip-dev \
     zip \
     unzip \
-    # vim \
-    # nodejs \
-    # npm \
+    supervisor \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd \
-    && docker-php-ext-install pdo pdo_mysql zip
-
-RUN docker-php-ext-configure pcntl --enable-pcntl \
-    && docker-php-ext-install \
-      pcntl
+    && docker-php-ext-install gd bcmath pdo pdo_mysql zip
 
 # Enable Apache modules
 RUN a2enmod rewrite
@@ -34,16 +27,23 @@ COPY ./src .
 # Install Composer
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
+# Install application dependencies
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer install --optimize-autoloader --no-dev
+
 # Set permissions for Laravel
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
 
 # Copy custom Apache virtual host configuration
 COPY conf/apache/000-default.conf /etc/apache2/sites-available/000-default.conf
 
+# Copy Supervisor configuration
+COPY conf/supervisor/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
 # Expose port 80
 EXPOSE 80
 
-EXPOSE 8080
-
 # Start Apache in the foreground
-CMD ["apache2-foreground"]
+# CMD ["apache2-foreground"]
+
+# Start Apache and Supervisor
+CMD ["/usr/bin/supervisord", "-n"]

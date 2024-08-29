@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\OrderStatus;
 use App\Models\Order;
 use App\Models\User;
 
@@ -72,7 +73,7 @@ class CheckoutService
     {
         $orderId = $session->metadata->order;
         $order = Order::find($orderId);
-        $order->status = 'Payment Success';
+        $order->status = OrderStatus::Received;
         $order->payment_intent = $session->payment_intent;
         $order->billing_address = $session->customer_details->address;
         $order->save();

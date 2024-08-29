@@ -37,7 +37,7 @@
         </section>
         <hr />
         <section class="space-y-4 pb-4">
-            <SectionTitle class="text-center">Our Store Locations</SectionTitle>
+            <SectionTitle class="text-center">Our Stores Location</SectionTitle>
             <div class="grid grid-cols-3 text-sm text-gray-400">
                 <TheCard v-for="location in locations" :key="location.id">
                     <h2 class="font-semibold text-green-900">

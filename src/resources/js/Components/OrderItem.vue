@@ -22,7 +22,13 @@
 </template>
 
 <script setup>
+import { useForm } from "@inertiajs/vue3";
+
 defineProps({
     item: Object,
+});
+const form = useForm({
+    review: null,
+    rating: null,
 });
 </script>

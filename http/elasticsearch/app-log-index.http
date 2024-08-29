@@ -1,0 +1,25 @@
+@index=laravel-logs
+
+PUT {{elasticSearchUrl}}/{{index}}
+Content-Type: application/json
+Authorization: ApiKey {{token}}
+
+{
+  "mappings": {
+    "properties": {
+      "timestamp": {
+        "type": "date",
+        "format": "yyyy-MM-dd HH:mm:ss"
+      },
+      "env": {
+        "type": "keyword"
+      },
+      "severity": {
+        "type": "keyword"
+      },
+      "message": {
+        "type": "text"
+      }
+    }
+  }
+}

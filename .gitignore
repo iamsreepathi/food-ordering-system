@@ -1,3 +1,6 @@
 .DS_Store
 .idea
 .env
+.vscode
+conf/logstash/pipeline/*.conf
+ecs/tasks

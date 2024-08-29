@@ -30,7 +30,7 @@ class NewsletterSubscription extends Mailable implements ShouldQueue
         return new Envelope(
             subject: 'Newsletter Subscription',
             replyTo: [
-                new Address('johndoe@example.com', 'John Doe')
+                new Address(config('mail.reply_to.address'), config('mail.reply_to.name'),)
             ]
         );
     }

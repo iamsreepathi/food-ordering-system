@@ -1,9 +1,9 @@
 <template>
     <nav class="px-4 py-2 space-y-2">
         <div class="flex flex-wrap items-center justify-between space-y-2">
-            <Link class="font-bold text-xl tracking-wide" href="/"
-                >Food Mania</Link
-            >
+            <Link class="font-bold text-xl tracking-wide" href="/">
+                <img src="/images/logo.png" class="h-12" alt="logo" />
+            </Link>
             <div class="hidden space-x-4 text-sm md:flex items-center">
                 <Link
                     v-for="(link, idx) in routes"

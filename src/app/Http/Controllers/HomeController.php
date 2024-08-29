@@ -6,6 +6,8 @@ use App\Http\Requests\SubscriptionRequest;
 use App\Mail\NewsletterSubscription;
 use App\Models\Location;
 use App\Models\MenuItem;
+use Exception;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
 
@@ -35,6 +37,19 @@ class HomeController extends Controller
 
         return Inertia::render('About', [
             'location' => $location,
+        ]);
+    }
+
+    public function log()
+    {
+        Log::info('Welcome to food mania');
+        try {
+            throw new Exception('Something broken.');
+        } catch (Exception $e) {
+            Log::error($e);
+        }
+        return response()->json([
+            'message' => 'Welcome to food mania'
         ]);
     }
 }

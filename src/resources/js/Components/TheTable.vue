@@ -16,6 +16,9 @@
             </tr>
         </thead>
         <tbody class="divide-y">
+            <tr v-show="data.length === 0" class="bg-white hover:bg-gray-50">
+                <td class="px-6 py-4">You have 0 orders.</td>
+            </tr>
             <tr
                 v-for="rec in data"
                 :key="rec.id"

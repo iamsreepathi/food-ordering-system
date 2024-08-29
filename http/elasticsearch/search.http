@@ -1,0 +1,13 @@
+@index=laravel-logs
+
+GET {{elasticSearchUrl}}/{{index}}/_search
+Content-Type: application/json
+Authorization: ApiKey {{token}}
+
+{
+    "query": {
+        "match": {
+            "message": "local.INFO"
+        }
+    }
+}

@@ -1,0 +1,5 @@
+@index=laravel-logs
+
+DELETE {{elasticSearchUrl}}/{{index}}
+Content-Type: application/json
+Authorization: ApiKey {{token}}

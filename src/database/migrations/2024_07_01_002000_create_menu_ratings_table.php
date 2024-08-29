@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer("rating");
             $table->text("review");
             $table->timestamps();
+            $table->unique(['user_id', 'menu_item_id']);
         });
     }
 

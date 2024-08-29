@@ -1,0 +1,2 @@
+- pipeline.id: laravel-logs
+  path.config: "/usr/share/logstash/pipeline/laravel-logs.conf"

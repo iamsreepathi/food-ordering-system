@@ -1,0 +1,3 @@
+GET {{elasticSearchUrl}}
+Content-Type: application/json
+Authorization: ApiKey {{token}}

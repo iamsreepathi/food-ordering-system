@@ -1,7 +1,7 @@
 <template>
     <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         <div class="flex justify-center border p-2 border-gray-300 rounded">
-            <img :src="item?.image_url" :alt="item?.name" class="lg:w-2/3" />
+            <img :src="item?.image_url" :alt="item?.name" />
         </div>
         <div class="space-y-4 lg:col-span-2">
             <h2 class="font-semibold">{{ item?.name }}</h2>
