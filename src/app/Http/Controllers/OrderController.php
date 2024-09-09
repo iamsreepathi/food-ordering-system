@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Enums\OrderStatus;
-use App\Mail\OrderConfirmation;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use Inertia\Inertia;

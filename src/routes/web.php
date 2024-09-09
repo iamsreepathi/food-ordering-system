@@ -31,4 +31,6 @@ Route::get('/checkout/cancel', [CheckoutController::class, 'cancel'])->name('che
 Route::middleware(["auth"])->group(function () {
     Route::resource('checkout', CheckoutController::class)->only(['index', 'store']);
     Route::resource('orders', OrderController::class)->only(['index', 'show']);
+    Route::get('/profile', [AuthController::class, 'profile'])->name('user.profile');
+    Route::post('menu-item/{menu_item}/review', [MenuItemController::class, 'review'])->name('menu-item.review');
 });

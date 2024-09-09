@@ -110,6 +110,65 @@
                             </div>
                             <FormError :message="form.errors.pickup" />
                         </div>
+                        <!-- <div class="space-y-2">
+                            <p class="font-semibold text-lg mt-8">
+                                Delivery Address
+                            </p>
+                            <div class="space-y-2">
+                                <label for="street">Street address</label>
+                                <input
+                                    class="block border rounded outline-none p-2 w-full"
+                                    placeholder="456 Elm street, Apt#123"
+                                    type="text"
+                                    id="street"
+                                    v-model="form.street"
+                                />
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="space-y-2">
+                                    <label for="city">city</label>
+                                    <input
+                                        class="block border rounded outline-none p-2 w-full"
+                                        type="text"
+                                        id="city"
+                                        placeholder="Dell Rapids"
+                                        v-model="form.city"
+                                    />
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="state">State</label>
+                                    <input
+                                        class="block border rounded outline-none p-2 w-full"
+                                        type="text"
+                                        id="state"
+                                        placeholder="SD"
+                                        v-model="form.state"
+                                    />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-2">
+                                <div class="space-y-2">
+                                    <label for="country">Country</label>
+                                    <input
+                                        class="block border rounded outline-none p-2 w-full"
+                                        type="text"
+                                        id="country"
+                                        placeholder="USA"
+                                        v-model="form.country"
+                                    />
+                                </div>
+                                <div class="space-y-2">
+                                    <label for="zipcode">Zipcode</label>
+                                    <input
+                                        class="block border rounded outline-none p-2 w-full"
+                                        type="number"
+                                        id="zipcode"
+                                        placeholder="50912"
+                                        v-model="form.state"
+                                    />
+                                </div>
+                            </div>
+                        </div> -->
                         <CheckoutSummary
                             :items="items"
                             class="block md:hidden"

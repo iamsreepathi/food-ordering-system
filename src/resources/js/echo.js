@@ -12,10 +12,3 @@ window.Echo = new Echo({
     forceTLS: (import.meta.env.VITE_REVERB_SCHEME ?? "https") === "https",
     enabledTransports: ["ws", "wss"],
 });
-
-/**
- * Testing Channels & Events & Connections
- */
-// window.Echo.channel("order").listen("OrderStatus", (event) => {
-//     console.log(event);
-// });

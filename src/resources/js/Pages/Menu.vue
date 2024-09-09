@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Our Food Menu | Food Mania</title>
+        <title>Our Food Menu | Spice Savor</title>
     </Head>
     <AppLayout>
         <section class="space-y-6">

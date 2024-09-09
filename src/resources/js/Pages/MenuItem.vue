@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Menu Item {{ item.name }} | Food Mania</title>
+        <title>Menu Item {{ item.name }} | Spice Savor</title>
     </Head>
     <AppLayout>
         <ItemDetail :item="item" />

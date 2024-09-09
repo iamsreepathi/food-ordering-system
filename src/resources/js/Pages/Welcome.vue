@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>South Indian Cuisine | Food Mania</title>
+        <title>South Indian Cuisine | Spice Savor</title>
     </Head>
     <AppLayout :subscription="true">
         <section class="space-y-2 text-center">

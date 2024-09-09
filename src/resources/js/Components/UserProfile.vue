@@ -27,7 +27,9 @@
                 aria-labelledby="dropdownUserAvatarButton"
             >
                 <li>
-                    <Link href="#" class="block px-4 py-2 hover:bg-gray-100"
+                    <Link
+                        href="/profile"
+                        class="block px-4 py-2 hover:bg-gray-100"
                         >Profile</Link
                     >
                 </li>

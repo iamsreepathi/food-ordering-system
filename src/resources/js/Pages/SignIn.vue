@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Sign In | Food Mania</title>
+        <title>Sign In | Spice Savor</title>
     </Head>
     <AppLayout :header="false">
         <section class="flex justify-center items-center h-screen -mt-20">
@@ -46,7 +46,7 @@
                     <p class="text-gray-400">
                         By continuing, you agree to
                         <span class="text-green-800 underline"
-                            >Food Mania's Conditions</span
+                            >Spice Savor's Conditions</span
                         >
                         of Use and
                         <span class="text-green-800 underline"
@@ -55,11 +55,11 @@
                     </p>
                 </div>
                 <div class="text-xs text-gray-400 space-y-2">
-                    <p>New to Food Mania?</p>
+                    <p>New to Spice Savor?</p>
                     <ButtonLink
                         class="rounded-md block text-center font-semibold"
                         link="#"
-                        >Create your Food Mania account</ButtonLink
+                        >Create your Spice Savor account</ButtonLink
                     >
                 </div>
             </div>

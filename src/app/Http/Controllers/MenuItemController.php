@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\MenuItemRatingRequest;
 use App\Http\Resources\MenuRatingResource;
 use App\Models\MenuItem;
 use App\Models\MenuRating;
@@ -73,5 +74,25 @@ class MenuItemController extends Controller
     public function destroy(MenuItem $menuItem)
     {
         //
+    }
+
+    /**
+     * Menu item rating by the customer.
+     */
+    public function review(MenuItem $menuItem, MenuItemRatingRequest $request)
+    {
+        MenuRating::upsert(
+            [
+                [
+                    'user_id' => $request->user()->id,
+                    'menu_item_id' => $menuItem->id,
+                    'rating' => $request->get('rating'),
+                    'review' => $request->get('review')
+                ],
+            ],
+            ['user_id', 'menu_item_id'],
+            ['rating', 'review']
+        );
+        session()->flash('message', 'Your review submitted. Thank you!');
     }
 }

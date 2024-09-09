@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>About Us | Food Mania</title>
+        <title>About Us | Spice Savor</title>
     </Head>
     <AppLayout :header="false">
         <section class="grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-4">

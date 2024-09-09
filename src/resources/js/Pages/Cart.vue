@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Shopping Cart | Food Mania</title>
+        <title>Shopping Cart | Spice Savor</title>
     </Head>
     <AppLayout :header="false">
         <section class="space-y-4">

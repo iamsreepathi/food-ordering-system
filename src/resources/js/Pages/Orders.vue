@@ -1,6 +1,6 @@
 <template>
     <Head>
-        <title>Recent Orders | Food Mania</title>
+        <title>Recent Orders | Spice Savor</title>
     </Head>
     <AppLayout>
         <section class="space-y-4">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -41,5 +43,18 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return Inertia::location('/login');
+    }
+
+    public function profile(Request $request)
+    {
+        $user = $request->user();
+        $user->load(['orders' => function ($query) {
+            $query->withCount('items')
+                ->orderby('order_date', 'desc')
+                ->limit(5);
+        }]);
+        return Inertia::render('Profile', [
+            'user' => $user
+        ]);
     }
 }
